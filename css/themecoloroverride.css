@@ -1,0 +1,78 @@
+body {
+  background-color: #393B3A !important;
+  color: #000000;
+}
+
+.btn-primary {
+  background-color: #F8D838 !important;
+  border-color: #F8D838 !important;
+  color: #000000; /* text color */
+}
+
+.btn-primary:hover {
+  background-color: #e6c92f !important; /* slightly darker on hover */
+  border-color: #e6c92f !important;
+}
+
+p{
+    color: white;
+}
+
+.navbar .navbar-brand {
+
+    background: #F8D838 !important;
+
+}
+
+.navbar .navbar-brand::after {
+
+    background: #F8D838 !important;
+}
+
+.navbar .navbar-nav .nav-link {
+
+    color: white;
+}
+
+.navbar-nav .nav-link.active{
+
+  
+color: #F8D838 !important;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: #F8D838 !important;
+}
+   
+
+.service-item .service-title {
+
+    background: #F8D838 !important;
+
+  
+}
+
+.text-primary {
+    color: #FFEB3B !important;
+}
+
+.topbar-right {
+    position: relative;
+   background: #F8D838 !important;
+}
+
+.topbar-right::before {
+
+    background-color: #e6c92f !important; /* slightly darker on hover */
+}
+
+.service-item .service-img {
+height: 105px;
+
+}
+
+h1{
+
+    color: white;
+}

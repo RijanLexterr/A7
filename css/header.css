@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+/* TOP BAR */
+.top-bar {
+  background: #0d2c54;
+  color: #fff;
+  font-size: 14px;
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.social a {
+  color: white;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #fff;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO with angled shape */
+.logo {
+  background: #ff5e14;
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 15px 40px;
+  clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+}
+
+/* NAV MENU */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+nav ul li.active {
+  color: #ff5e14;
+}
+
+/* BUTTON */
+.btn {
+  background: #ff5e14;
+  color: #fff;
+  padding: 10px 18px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+/* HOVER EFFECT */
+nav ul li:hover {
+  color: #ff5e14;
+}
+
+.btn:hover {
+  background: #e14d0f;
+}
