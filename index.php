@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="ms-3">
                                     <p class="mb-2">Email us</p>
-                                    <h5 class="mb-0">info@example.com</h5>
+                                    <h5 class="text-primary mb-0">info@example.com</h5>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="ms-3">
                                     <p class="mb-2">Call us</p>
-                                    <h5 class="mb-0">+012 345 6789</h5>
+                                    <h5 class="text-primary mb-0">+012 345 6789</h5>
                                 </div>
                             </div>
                         </div>
