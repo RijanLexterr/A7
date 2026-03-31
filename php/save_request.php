@@ -130,7 +130,7 @@ $body =  "
 </body>
 </html>
 ";
-sendEmail("piaako10@gmail.com", "test", $body,"test");
+sendEmail("neilmarvincampos025@gmail.com", "test", $body,"test");
 // header("Location: ../index.php"); // or your homepage file
 // exit();
 ?>

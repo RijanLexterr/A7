@@ -68,7 +68,7 @@
         <div class="row g-5">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                 <p class="fw-medium text-uppercase text-primary mb-2">Contact Us</p>
-                <h1 class="display-5 mb-4">If You Have Any Queries, Please Feel Free To Contact Us</h1>
+                <h1 class="display-5 mb-4">If you have Equipmet Request, Please Feel Free To Contact Us</h1>
                 <p class="mb-4">Fill out the form below and we will get back to you as soon as possible.</p>
                 <div class="row g-4">
                     <div class="col-6">
@@ -78,7 +78,7 @@
                             </div>
                             <div class="ms-3">
                                 <h6 class="text-primary">Call Us</h6>
-                                <span class="text-primary">+012 345 67890</span>
+                                <span class="text-primary">+639228514433</span>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="ms-3">
                                 <h6 class="text-primary">Mail Us</h6>
-                                <span class="text-primary">info@example.com</span>
+                                <span class="text-primary">hmcf.prime@gmail.com</span>
                             </div>
                         </div>
                     </div>

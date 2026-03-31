@@ -29,7 +29,6 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -45,16 +44,15 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <div class="col-lg-6 ps-5 text-start">
             <div class="h-100 d-inline-flex align-items-center text-white">
                 <span>Follow Us:</span>
-                <a class="btn btn-link text-light" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-link text-light" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-link text-light" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-link text-light" href="#"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-link text-light" href="mailto:hmcf.prime@gmail.com"><i class="bi bi-envelope"></i></a>
+                <a class="btn btn-link text-light" href="https://wa.me/639812036264?text=Hello%20I%20want%20to%20inquire"><i class="fab fa-whatsapp"></i></a>
+                  <a class="btn btn-link text-light" href="viber://chat?number=639228514433"><i class="fab fa-viber"></i></a>
             </div>
         </div>
         <div class="col-lg-6 text-end">
             <div class="h-100 topbar-right d-inline-flex align-items-center text-white py-2 px-5">
-                <span class="fs-5 fw-bold me-2" style="color: #393B3A;"><i class="fa fa-phone-alt me-2"></i>Call Mateo Maldo Jr.:</span>
-                <span class="fs-5 fw-bold" style="color:#393B3A">+012 345 6789</span>
+                <span class="fs-5 fw-bold me-2" style="color: #393B3A;"><i class="fa fa-phone-alt me-2"></i>Call Us +09228514433:</span>
+               
             </div>
         </div>
     </div>
