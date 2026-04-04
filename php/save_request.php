@@ -1,9 +1,9 @@
 <?php
 require_once 'email.php';
 $host = "localhost";
-$user = "root";        // change if needed
-$pass = "";            // change if needed
-$db = "Service";
+$user = "u709053201_Admin";        // change if needed
+$pass = "Hmcfprime@123";            // change if needed
+$db = "u709053201_Hmcfprime";
 
 // Connect to MySQL
 $conn = new mysqli($host, $user, $pass, $db);
