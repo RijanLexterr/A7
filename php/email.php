@@ -17,7 +17,7 @@ require_once 'phpmailer/SMTP.php';
  * @param string $fromName (optional) Sender name
  * @return bool True if sent successfully, false otherwise
  */
-function sendEmail($to, $subject, $body, $toName = '', $from = 'sliadmin@slmissions.org', $fromName = 'Ester Admin')
+function sendEmail($to, $subject, $body, $toName = 'Admin', $from = 'admin@hmcfprime.online', $fromName = 'HMCF PRIME Online form')
 {
     $mail = new PHPMailer(true);
 
@@ -29,8 +29,8 @@ function sendEmail($to, $subject, $body, $toName = '', $from = 'sliadmin@slmissi
 
         // $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'sliadmin@slmissions.org'; // your Gmail address
-        $mail->Password   = 'Coramdeo@123';   // your Gmail App Password
+        $mail->Username   = 'admin@hmcfprime.online'; // your Gmail address
+        $mail->Password   = 'Hmcfprime@123';   // your Gmail App Password
         $mail->SMTPSecure = 'tls';
         //$mail->Port       = 587;
 
