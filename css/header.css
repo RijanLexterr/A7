@@ -86,3 +86,9 @@ nav ul li:hover {
 .btn:hover {
   background: #e14d0f;
 }
+
+.navTitle {
+  color: #393B3A !important;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: bold;
+}

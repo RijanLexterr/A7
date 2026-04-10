@@ -4,21 +4,21 @@
 <?php require 'headertemplate.php'; ?>
 
 <style>
-
-    .carousel-control-prev-icon, .carousel-control-next-icon {
-    width: 3.5rem;
-    height: 3.5rem;
-    background-color: #F8D838 !important;
-    border: 15px solid #F8D838 !important;
-    border-radius: 3.5rem;
-}
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-color: #F8D838 !important;
+        border: 15px solid #F8D838 !important;
+        border-radius: 3.5rem;
+    }
 </style>
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-    </div>
+    </div> -->
     <!-- Spinner End -->
 
 
@@ -29,17 +29,27 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="img/frommessenger_img/Bulldozer/653741885_1371001138407124_1284725484798201044_n.jpg" alt="Image">
+                    <img class="w-100"
+                        src="img/frommessenger_img/Bulldozer/653741885_1371001138407124_1284725484798201044_n.jpg"
+                        alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
-                                <div class="col-lg-10 text-start container d-flex flex-column align-items-center text-center">
-                                    <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight d-flex justify-content-center align-items-center">We provide heavy equipment rental and hauling solutions for construction, roadwork, and land development projects. Fast, efficient, and dependable service—anytime you need it.
-</p>
-                                    <h1 class="display-1 text-white mb-5 animated slideInRight">Reliable Hauling & Trucking Services You Can Trust</h1>
+                                <div
+                                    class="col-lg-10 text-start container d-flex flex-column align-items-center text-center">
+                                    <p
+                                        class="fs-5 fw-medium text-primary text-uppercase animated slideInRight d-flex justify-content-center align-items-center">
+                                        We provide heavy equipment rental and hauling solutions for construction,
+                                        roadwork, and land development projects. Fast, efficient, and dependable
+                                        service—anytime you need it.
+                                    </p>
+                                    <h1 class="text-white mb-4 animated slideInRight">Reliable Hauling &
+                                        Trucking Services You Can Trust</h1>
                                     <div class="d-flex gap-3 mt-3">
-                                    <a href="" class="btn btn-primary py-3 px-5 animated slideInRight " >Request Quotation</a>
-                                    <a href="" class="btn btn-primary py-3 px-5 animated slideInRight " >Inquire Now</a>
+                                        <a href="" class="btn btn-primary py-3 px-5 animated slideInRight ">Request
+                                            Quotation</a>
+                                        <a href="" class="btn btn-primary py-3 px-5 animated slideInRight ">Inquire
+                                            Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -47,17 +57,27 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="img/frommessenger_img/Bulldozer/648772778_1879751409363373_5307232410905388609_n.jpg" alt="Image">
+                    <img class="w-100"
+                        src="img/frommessenger_img/Bulldozer/648772778_1879751409363373_5307232410905388609_n.jpg"
+                        alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
-                                <div class="col-lg-10 text-start container d-flex flex-column align-items-center text-center">
-                                    <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight d-flex justify-content-center align-items-center">We provide heavy equipment rental and hauling solutions for construction, roadwork, and land development projects. Fast, efficient, and dependable service—anytime you need it.
-</p>
-                                    <h1 class="display-1 text-white mb-5 animated slideInRight">Reliable Hauling & Trucking Services You Can Trust</h1>
+                                <div
+                                    class="col-lg-10 text-start container d-flex flex-column align-items-center text-center">
+                                    <p
+                                        class="fs-5 fw-medium text-primary text-uppercase animated slideInRight d-flex justify-content-center align-items-center">
+                                        We provide heavy equipment rental and hauling solutions for construction,
+                                        roadwork, and land development projects. Fast, efficient, and dependable
+                                        service—anytime you need it.
+                                    </p>
+                                    <h1 class="text-white mb-4 animated slideInRight">Reliable Hauling &
+                                        Trucking Services You Can Trust</h1>
                                     <div class="d-flex gap-3 mt-3">
-                                    <a href="" class="btn btn-primary py-3 px-5 animated slideInRight " >Request Quotation</a>
-                                    <a href="" class="btn btn-primary py-3 px-5 animated slideInRight " >Inquire Now</a>
+                                        <a href="" class="btn btn-primary py-3 px-5 animated slideInRight ">Request
+                                            Quotation</a>
+                                        <a href="" class="btn btn-primary py-3 px-5 animated slideInRight ">Inquire
+                                            Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -65,13 +85,11 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -83,21 +101,26 @@
     <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
-          <div class="row align-items-center">
-  <div class="col-lg-6">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
                     <div class="row gx-3 h-100">
                         <div class=" align-self-start wow fadeInUp" data-wow-delay="0.1s">
-                            <img class="img-fluid" src="img/frommessenger_img/Bulldozer/350254176_1987765081565505_7595268439387192288_n.jpg" class="img-fluid w-100 shadow-lg" alt="Construction Site" style="object-fit: cover; min-height: 500px;">
+                            <img class="img-fluid"
+                                src="img/frommessenger_img/Bulldozer/350254176_1987765081565505_7595268439387192288_n.jpg"
+                                class="img-fluid w-100 shadow-lg" alt="Construction Site"
+                                style="object-fit: cover; min-height: 500px;">
                         </div>
 
-    
-                
+
+
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <p class="fw-medium text-uppercase text-primary mb-2">About Us</p>
                     <h1 class="display-5 mb-4">Why Choose Us</h1>
-                    <p class="mb-4">We are a trusted provider of hauling and trucking services, offering high-quality equipment and skilled operators for your project needs. Whether small-scale or large-scale operations, we ensure timely and efficient service delivery.</p>
+                    <p class="mb-4">We are a trusted provider of hauling and trucking services, offering high-quality
+                        equipment and skilled operators for your project needs. Whether small-scale or large-scale
+                        operations, we ensure timely and efficient service delivery.</p>
                     <div class="d-flex align-items-center mb-4">
                         <!-- <div class="flex-shrink-0 bg-primary p-4">
                             <h1 class="display-2">25</h1>
@@ -109,13 +132,15 @@
                             <p><i class="fa fa-check text-primary me-2"></i>Experienced operators</p>
                             <p><i class="fa fa-check text-primary me-2"></i>Fast response time</p>
                             <p><i class="fa fa-check text-primary me-2"></i>Competitive pricing</p>
-                            <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Reliable and on-time service</p>
+                            <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Reliable and on-time service
+                            </p>
                         </div>
                     </div>
                     <div class="row pt-2">
                         <div class="col-sm-6">
                             <div class="d-flex align-items-center">
-                                <div class="flex-shrink-0 btn-lg-square rounded-circle " style="background-color: #FFEB3B;">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle "
+                                    style="background-color: #FFEB3B;">
                                     <i class="fa fa-envelope-open text-white"></i>
                                 </div>
                                 <div class="ms-3">
@@ -126,7 +151,8 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="d-flex align-items-center">
-                                <div class="flex-shrink-0 btn-lg-square rounded-circle" style="background-color: #FFEB3B;">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle"
+                                    style="background-color: #FFEB3B;">
                                     <i class="fa fa-phone-alt text-white"></i>
                                 </div>
                                 <div class="ms-3">
@@ -185,10 +211,14 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="position-relative me-lg-4">
-                        <img class="img-fluid w-100" src="img/frommessenger_img/Bulldozer/449851731_845923547033782_8911731370414774582_n.jpg" alt="">
-                        <span class="position-absolute top-50 start-100 translate-middle bg-white rounded-circle d-none d-lg-block" style="width: 120px; height: 120px;"></span>
-                        <button type="button" class="btn-play" data-bs-toggle="modal"
-                            data-src="video/video_home.mp4" data-bs-target="#videoModal">
+                        <img class="img-fluid w-100"
+                            src="img/frommessenger_img/Bulldozer/449851731_845923547033782_8911731370414774582_n.jpg"
+                            alt="">
+                        <span
+                            class="position-absolute top-50 start-100 translate-middle bg-white rounded-circle d-none d-lg-block"
+                            style="width: 120px; height: 120px;"></span>
+                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="video/video_home.mp4"
+                            data-bs-target="#videoModal">
                             <span></span>
                         </button>
                     </div>
@@ -197,11 +227,13 @@
 
 
 
-                
+
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <p class="fw-medium text-uppercase text-primary mb-2">REASONS TO CHOOSE US</p>
                     <h1 class="display-5 mb-4">Several Reasons Why Clients Choose Our Hauling & Trucking Services</h1>
-                    <p class="mb-4">We are committed to providing reliable, safe, and efficient transportation solutions that meet all your hauling needs. Our experienced team works diligently to ensure your cargo is delivered securely and on time, every time.</p>
+                    <p class="mb-4">We are committed to providing reliable, safe, and efficient transportation solutions
+                        that meet all your hauling needs. Our experienced team works diligently to ensure your cargo is
+                        delivered securely and on time, every time.</p>
                     <div class="row gy-4">
                         <div class="col-12">
                             <div class="d-flex">
@@ -210,7 +242,8 @@
                                 </div>
                                 <div class="ms-4">
                                     <h4>Experienced Drivers</h4>
-                                    <span>Our team of CDL-certified drivers has years of experience navigating diverse routes and handling all types of cargo.</span>
+                                    <span>Our team of CDL-certified drivers has years of experience navigating diverse
+                                        routes and handling all types of cargo.</span>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +254,8 @@
                                 </div>
                                 <div class="ms-4">
                                     <h4>Reliable Fleet & Equipment</h4>
-                                    <span>Our modern, well-maintained trucks and trailers are equipped to handle everything from standard freight to complex, heavy-duty hauling.</span>
+                                    <span>Our modern, well-maintained trucks and trailers are equipped to handle
+                                        everything from standard freight to complex, heavy-duty hauling.</span>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +266,8 @@
                                 </div>
                                 <div class="ms-4">
                                     <h4>Comprehensive Logistics Solutions</h4>
-                                    <span>From specialized load planning to route optimization, we offer end-to-end logistics to streamline your transportation process.</span>
+                                    <span>From specialized load planning to route optimization, we offer end-to-end
+                                        logistics to streamline your transportation process.</span>
                                 </div>
                             </div>
                         </div>
@@ -245,24 +280,25 @@
 
 
     <!-- Video Modal Start -->
-<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content rounded-0">
-            <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">Video Preview</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="ratio ratio-16x9">
-                    <video id="localVideo" controls>
-                        <source src="video/video_home.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+    <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Video Preview</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9">
+                        <video id="localVideo" controls>
+                            <source src="video/video_home.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
     <!-- Video Modal End -->
 
 
@@ -276,9 +312,13 @@
             <div class="row gy-5 gx-4">
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item">
-                        <img class="img-fluid" src="img/frommessenger_img/Bulldozer/651974962_34441639065481261_5966963977134858662_n.jpg" alt="" >
+                        <img class="img-fluid"
+                            src="img/frommessenger_img/Bulldozer/651974962_34441639065481261_5966963977134858662_n.jpg"
+                            alt="">
                         <div class="service-img">
-                            <img class="img-fluid" src="img/frommessenger_img/Bulldozer/651974962_34441639065481261_5966963977134858662_n.jpg" alt="">
+                            <img class="img-fluid"
+                                src="img/frommessenger_img/Bulldozer/651974962_34441639065481261_5966963977134858662_n.jpg"
+                                alt="">
                         </div>
                         <div class="service-detail">
                             <div class="service-title">
@@ -287,7 +327,8 @@
                                 <hr class="w-25">
                             </div>
                             <div class="service-text">
-                                <p class="text-white mb-0">Rent high-quality machinery for all types of construction projects.</p>
+                                <p class="text-white mb-0">Rent high-quality machinery for all types of construction
+                                    projects.</p>
                             </div>
                         </div>
                         <a class="btn btn-light" href="">Read More</a>
@@ -295,9 +336,13 @@
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item">
-                        <img class="img-fluid" src="img/frommessenger_img/Bulldozer/653582378_955672716839309_2968567181411362169_n.jpg" alt="">
+                        <img class="img-fluid"
+                            src="img/frommessenger_img/Bulldozer/653582378_955672716839309_2968567181411362169_n.jpg"
+                            alt="">
                         <div class="service-img">
-                            <img class="img-fluid" src="img/frommessenger_img/Bulldozer/653582378_955672716839309_2968567181411362169_n.jpg" alt="">
+                            <img class="img-fluid"
+                                src="img/frommessenger_img/Bulldozer/653582378_955672716839309_2968567181411362169_n.jpg"
+                                alt="">
                         </div>
                         <div class="service-detail">
                             <div class="service-title">
@@ -306,7 +351,8 @@
                                 <hr class="w-25">
                             </div>
                             <div class="service-text">
-                                <p class="text-white mb-0">Safe and timely transport of construction materials to your site.</p>
+                                <p class="text-white mb-0">Safe and timely transport of construction materials to your
+                                    site.</p>
                             </div>
                         </div>
                         <a class="btn btn-light" href="">Read More</a>
@@ -314,9 +360,13 @@
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item">
-                        <img class="img-fluid" src="img/frommessenger_img/Bulldozer/653662395_1747002060043910_1233042585507975312_n.jpg" alt="">
+                        <img class="img-fluid"
+                            src="img/frommessenger_img/Bulldozer/653662395_1747002060043910_1233042585507975312_n.jpg"
+                            alt="">
                         <div class="service-img">
-                            <img class="img-fluid" src="img/frommessenger_img/Bulldozer/653662395_1747002060043910_1233042585507975312_n.jpg" alt="">
+                            <img class="img-fluid"
+                                src="img/frommessenger_img/Bulldozer/653662395_1747002060043910_1233042585507975312_n.jpg"
+                                alt="">
                         </div>
                         <div class="service-detail">
                             <div class="service-title">
@@ -325,43 +375,45 @@
                                 <hr class="w-25">
                             </div>
                             <div class="service-text">
-                                <p class="text-white mb-0">Prepare your land efficiently for construction, grading, and leveling.</p>
+                                <p class="text-white mb-0">Prepare your land efficiently for construction, grading, and
+                                    leveling.</p>
                             </div>
                         </div>
                         <a class="btn btn-light" href="">Read More</a>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
 
-<section class="cta-container position-relative overflow-hidden py-5 px-3">
-  <a href="#" class="stretched-link text-decoration-none"></a>
+    <section class="cta-container position-relative overflow-hidden py-5 px-3">
+        <a href="#" class="stretched-link text-decoration-none"></a>
 
-  <div class="container text-center py-4">
-    <div class="row justify-content-center">
-      <div class="col-md-10 col-lg-8">
-        
-        <p class="orange-label fw-bold mb-3" style="color:#FFEB3B !important;">GET A QUOTE TODAY</p>
-        
-        <h2 class="display-5 fw-bold text-white mb-3">
-          Need equipment for your next project?
-        </h2>
-        
-        <a href="requestform.php"></a><p class="h4 text-light opacity-90 fw-light" style="color:#FFEB3B !important;">
-          👉 Request a quotation today and let us help you get started!
-        </p></a>
-        
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="container text-center py-4">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+
+                    <p class="orange-label fw-bold mb-3" style="color:#FFEB3B !important;">GET A QUOTE TODAY</p>
+
+                    <h2 class="display-5 fw-bold text-white mb-3">
+                        Need equipment for your next project?
+                    </h2>
+
+                    <a href="requestform.php"></a>
+                    <p class="h4 text-light opacity-90 fw-light" style="color:#FFEB3B !important;">
+                        👉 Request a quotation today and let us help you get started!
+                    </p></a>
+
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Service End -->
 
 
-   
+
 
 
     <!-- Team Start -->
@@ -486,29 +538,29 @@
         </div>
     </div> -->
     <!-- Testimonial End -->
-<script>
-    // Wait for the document to load
-    document.addEventListener('DOMContentLoaded', function () {
-        var myModalEl = document.getElementById('videoModal');
-        var videoPlayer = document.getElementById('localVideo');
+    <script>
+        // Wait for the document to load
+        document.addEventListener('DOMContentLoaded', function () {
+            var myModalEl = document.getElementById('videoModal');
+            var videoPlayer = document.getElementById('localVideo');
 
-        // This triggers specifically when the Bootstrap modal is hidden
-        myModalEl.addEventListener('hidden.bs.modal', function () {
-            // Pause the video
-            videoPlayer.pause();
-            // Reset the time to the beginning (optional)
-            videoPlayer.currentTime = 0;
+            // This triggers specifically when the Bootstrap modal is hidden
+            myModalEl.addEventListener('hidden.bs.modal', function () {
+                // Pause the video
+                videoPlayer.pause();
+                // Reset the time to the beginning (optional)
+                videoPlayer.currentTime = 0;
+            });
+
+            // Optional: Auto-play when the modal opens
+            myModalEl.addEventListener('shown.bs.modal', function () {
+                videoPlayer.play();
+            });
         });
+    </script>
 
-        // Optional: Auto-play when the modal opens
-        myModalEl.addEventListener('shown.bs.modal', function () {
-            videoPlayer.play();
-        });
-    });
-</script>
+    <?php require 'footertemplate.php'; ?>
 
-  <?php require 'footertemplate.php'; ?>
-   
 </body>
 
 </html>
