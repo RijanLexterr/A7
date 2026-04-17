@@ -6,14 +6,14 @@
                     {
                         name: "Fuso Great",
                         img: "./img/equipmentcatalog/Fuso_Great.jpg",
-                        desc: "Earum omnis quae qui temporibus dolor sit. Rerum suscipit molestiae et id perferendis.",
+                        desc: "12 Wheeler  Selfloading Truck , 25 Tonner capacity",
                         specs: "No record/s found...",
                         inclusions: "1 Driver and 1 Helper"
                     },
                     {
                         name: "Isuzu Giga",
-                        img: "./img/equipmentcatalog/Isuzu_Giga.jpg",
-                        desc: "Also known as a prime mover, semi-tractor, truck, or big rig.",
+                        img: "./img/equipmentcatalog/Isuzu-Giga.jpg",
+                        desc: "6 Wheeler  Dump Truck , 3 cubic meter dump box capacity",
                         specs: "Bed Space: 6.2m | Capacity: 6x4 (10w)",
                         inclusions: "Standard Logistics Support"
                     }
@@ -25,14 +25,14 @@
                     {
                         name: "Caterpillar D3B",
                         img: "./img/equipmentcatalog/Caterpillar_D3B.jpg",
-                        desc: "Heavy duty bulldozer for massive earthmoving projects.",
+                        desc: "Steel tracked, 6 way , bulldozer",
                         specs: "Operating Weight: 100,000kg",
                         inclusions: "Certified Operator Included"
                     },
                         {
                         name: "Mitsubishi BD2G",
                         img: "./img/equipmentcatalog/Mitsubishi_BD2G.jpg",
-                        desc: "High precision digging and lifting capabilities.",
+                        desc: "Steel tracked, 6 way , bulldozer",
                         specs: "Bucket Capacity: 1.2m3",
                         inclusions: "On-site Maintenance Support"
                     },
@@ -47,28 +47,28 @@
                     {
                         name: "Caterpillar 312B",
                         img: "./img/equipmentcatalog/Caterpillar_312B.jpg",
-                        desc: "High precision digging and lifting capabilities.",
+                        desc: "Steel tracked hydraulic excavator with breakerline, 0.50 cubic meter bucket capacity",
                         specs: "Bucket Capacity: 1.2m3",
                         inclusions: "On-site Maintenance Support"
                     },
                       {
                         name: "Caterpillar 320DRR",
                         img: "./img/equipmentcatalog/Caterpillar_320DRR.jpg",
-                        desc: "High precision digging and lifting capabilities.",
+                        desc: "Steel tracked hydraulic excavator with breakerline, 0.75 cubic meter bucket capacity",
                         specs: "Bucket Capacity: 1.2m3",
                         inclusions: "On-site Maintenance Support"
                     },
                       {
                         name: "Caterpillar E70B",
                         img: "./img/equipmentcatalog/Caterpillar_E70B.jpg",
-                        desc: "High precision digging and lifting capabilities.",
+                        desc: "Steel tracked hydraulic excavator with breakerline, 0.25 cubic meter bucket capacity",
                         specs: "Bucket Capacity: 1.2m3",
                         inclusions: "On-site Maintenance Support"
                     },
                       {
                         name: "Hanix N300-2",
                         img: "./img/equipmentcatalog/Hanix_N300-2.jpg",
-                        desc: "High precision digging and lifting capabilities.",
+                        desc: "Steel tracked hydraulic excavator with breakerline, 0.10cubic meter bucket capacity",
                         specs: "Bucket Capacity: 1.2m3",
                         inclusions: "On-site Maintenance Support"
                     },
@@ -84,7 +84,7 @@
                          {
                         name: "Komatsu_PC100-3",
                         img: "./img/equipmentcatalog/Komatsu_PC100-3.png",
-                        desc: "High precision digging and lifting capabilities.",
+                        desc: "Steel tracked hydraulic excavator with breakerline, 0.50 cubic meter ",
                         specs: "Bucket Capacity: 1.2m3",
                         inclusions: "On-site Maintenance Support"
                     },
