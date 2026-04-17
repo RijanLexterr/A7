@@ -4,6 +4,12 @@
 <?php require 'headertemplate.php'; ?>
 
 <style>
+
+    body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+        
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         width: 3.5rem;
@@ -12,6 +18,97 @@
         border: 15px solid #F8D838 !important;
         border-radius: 3.5rem;
     }
+
+    .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Takes full viewport height */
+            background-image: url('./img/frommessenger_img/Bulldozer/656916578_955245553667921_3689539520457191939_n.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center; /* Vertically center the content */
+            color: white; /* Default text color */
+            font-family: Arial, sans-serif; /* A clear sans-serif font */
+        }
+
+        /* Dark overlay for text readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* 40% opaque black */
+            z-index: 1;
+        }
+
+        /* --- Content Container (for the left-side text and buttons) --- */
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Place above the dark overlay */
+            width: 90%;
+            max-width: 1200px; /* Limits content width on large screens */
+            margin: 0 auto; /* Horizontally centers the container */
+            padding-left: 20px;
+        }
+
+        /* --- Heading (H1) Styling --- */
+        .hero-title {
+            font-size: 3rem; /* Large and impactful */
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        /* --- Description (P) Styling --- */
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 600px; /* Limits text width */
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* --- Button Container --- */
+        .hero-buttons {
+            display: flex;
+            gap: 20px; /* Spacing between the buttons */
+        }
+
+        /* --- General Button Styles --- */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        /* --- Specific Primary Button Styles (e.g., 'Explore our services') --- */
+        .btn-primary {
+            background-color: #007DAA; /* Maersk's specific light blue */
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary:hover {
+            background-color: #005f81; /* Darker blue on hover */
+        }
+
+        /* --- Specific Secondary Button Styles (e.g., 'Contact us') --- */
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white; /* White outline */
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white hover effect */
+        }
 </style>
 
 <body>
@@ -22,10 +119,22 @@
     <!-- Spinner End -->
 
 
-
+<section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Reliable Hauling &
+                                        Trucking Services You Can Trust</h1>
+            <p class="hero-description">We provide heavy equipment rental and hauling solutions for construction,
+                                        roadwork, and land development projects. Fast, efficient, and dependable
+                                        service—anytime you need it.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Explore our services</a>
+                <a href="#" class="btn btn-secondary">Contact us</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Carousel Start -->
-    <div class="container-fluid px-0 mb-5">
+    <!-- <div class="container-fluid px-0 mb-5">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -94,7 +203,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </div>
+    </div> -->
     <!-- Carousel End -->
 
 
