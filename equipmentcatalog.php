@@ -227,7 +227,7 @@
 
         <div class="category-card" onclick="openEquipmentModal('excavator')">
             <div class="card-content">
-                <h3>Pisont<br>Transport</h3>
+                <h3>Excavator<br>Transport</h3>
                 <img src="./img/equipmentcatalog/categories/Excavator2.png" alt="Excavator">
                 <span class="learn-more">Learn More</span>
             </div>
