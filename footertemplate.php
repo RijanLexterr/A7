@@ -38,7 +38,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 <p class="mb-1">Sunday</p>
                 <h6 class="text-light">Closed</h6>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <!-- <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Newsletter</h5>
                 <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                 <div class="position-relative w-100">
@@ -47,7 +47,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                     <button type="button"
                         class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -67,7 +67,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+<a href="#" style="padding-top: 10px" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
 <!-- JavaScript Libraries -->
