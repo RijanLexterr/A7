@@ -150,7 +150,7 @@
                     <div class="contact-card text-center h-100 p-5">
                         <div class="icon-box mb-4"><i class="fa fa-phone-alt fa-2x"></i></div>
                         <h4 class="mb-3">Phone Number</h4>
-                        <div class="info-pill mb-4"><span>+012 345 67890</span></div>
+                        <div class="info-pill mb-4"><span>+09228514433</span></div>
                         <a class="btn btn-custom px-4" href="tel:+0123456789">Call Now <i class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>

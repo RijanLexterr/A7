@@ -9,9 +9,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Our Office</h5>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>215 Arevalo Street, Muntinlupa City</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+09228514433</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>hmcf.prime@gmail.com</p>
                 <div class="d-flex pt-3">
                     <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
@@ -23,11 +23,11 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Quick Links</h5>
-                <a class="btn btn-link" href="">About Us</a>
+                <a class="btn btn-link" href="">Home</a>
+                <a class="btn btn-link" href="">Equipment Catalog</a>
+                <a class="btn btn-link" href="">Equipment Request</a>
+                <a class="btn btn-link" href="">Project Gallery</a>
                 <a class="btn btn-link" href="">Contact Us</a>
-                <a class="btn btn-link" href="">Our Services</a>
-                <a class="btn btn-link" href="">Terms & Condition</a>
-                <a class="btn btn-link" href="">Support</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Business Hours</h5>
