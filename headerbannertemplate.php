@@ -27,6 +27,9 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Script -->
+
 </head>
 <body>
 
@@ -42,6 +45,8 @@
             </nav>
         </div>
     </div>
+
+    
     
 </body>
 </html>

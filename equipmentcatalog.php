@@ -3,216 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>\
-
+    <title>Equipment Catalog</title>
 
     <style>
-/* Container Layout */
-.equipment-gallery {
-    padding: 40px 2%;
-    max-width: 1600px; /* Increased to allow 5 cards across */
-    margin: 0 auto;
+        /* --- KEEPING YOUR ORIGINAL STYLES --- */
+        :root {
+            --brand-blue: #005691;
+            --hover-blue: #003d66;
+        }
+
+        .category-grid {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .category-card {
+            background-color: #004a80;
+            width: 320px;
+            height: 450px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform: skewX(-15deg); 
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 10px 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .category-card:hover {
+            background-color: var(--hover-blue);
+            transform: skewX(-15deg) translateY(-5px);
+        }
+
+        .card-content {
+            transform: skewX(15deg); 
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            color: white;
+            padding: 40px 50px;
+            box-sizing: border-box;
+        }
+
+        .card-content h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            text-align: left;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .card-content img {
+            width: 140%;
+            margin-left: -20%; 
+            margin-top: auto;
+            margin-bottom: auto;
+            filter: drop-shadow(0px 20px 15px rgba(0,0,0,0.6));
+        }
+
+        .learn-more {
+            font-weight: bold;
+            text-decoration: underline;
+            font-style: italic;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .category-card.active {
+            outline: 4px solid #ffcc00;
+        }
+
+        /* --- NEW MODAL STYLES (Matching your reference image) --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow-y: auto;
+        }
+
+        .modal-window {
+            background-color: #f4f7f9;
+            background-image: linear-gradient(45deg, #ffffff 25%, transparent 25%), 
+                              linear-gradient(-45deg, #ffffff 25%, transparent 25%);
+            background-size: 60px 60px;
+            margin: 2% auto;
+            width: 90%;
+            max-width: 1200px;
+            min-height: 80vh;
+            position: relative;
+            padding: 40px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+        }
+
+        .modal-header-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .modal-header-area h1 {
+            color: #004a80;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .unit-select {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 200px;
+        }
+
+        .unit-detail-row {
+            background: white;
+            margin-bottom: 20px;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 1.5fr 2fr 1.5fr 1.5fr;
+            gap: 20px;
+            border-left: 6px solid #004a80;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            align-items: start;
+        }
+
+        .unit-detail-row img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .unit-detail-row h4 {
+            color: #004a80;
+            font-size: 18px;
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .unit-detail-row p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 25px;
+            font-size: 35px;
+            cursor: pointer;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .get-quote-btn {
+            background: #004a80;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .get-quote-btn:hover {
+            background-color: #003d66;
+        }
+
+        .modal-header-area {
+    position: sticky;
+    top: -40px; /* Adjust based on your modal padding */
+    background-color: #f4f7f9;
+    z-index: 10;
+    padding-top: 20px;
 }
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    color: #333;
-}
-
-.equipment-grid {
-    display: grid;
-    gap: 20px;
-    /* minmax(250px, 1fr) allows cards to shrink to 250px. 
-       On a 1600px screen, this will naturally fit 5-6 cards.
-    */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-/* Card Styling */
-.equipment-card {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.equipment-card:hover {
-    transform: translateY(-5px);
-}
-
-.image-container img {
-    width: 100%;
-    height: 180px; /* Reduced height to keep cards proportional when narrow */
-    object-fit: cover;
-}
-
-.content {
-    padding: 25px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.content h3 {
-    margin: 0 0 15px 0;
-    color: #2c3e50;
-    font-size: 1.5rem;
-}
-
-.content p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-
-/* Button Styling */
-.inquiry-btn {
-    display: inline-block;
-    background-color: #f39c12; /* Industrial Yellow */
-    color: #fff;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
-    transition: background 0.3s ease;
-}
-
-.inquiry-btn:hover {
-    background-color: #e67e22;
-}
-
-@media (min-width: 1400px) {
-    .equipment-grid {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-/* Video Overlay Styling */
-.video-card { cursor: pointer; position: relative; }
-
-.play-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background 0.3s;
-}
-
-.play-icon {
-    font-size: 50px;
-    color: white;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-.video-card:hover .play-overlay {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-/* Modal Background */
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 1000;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.9);
-}
-
-/* Modal Content (Video Container) */
-.modal-content {
-    position: relative;
-    margin: auto;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 80%;
-    max-width: 800px;
-}
-
-#modalVideo {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-/* Close Button */
-.close-modal {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-
-.brand-label {
-  display: inline-block;
-  color: #666;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-}
-
-/* The striking Title */
-.model-title {
-  color: #1a2b3c;
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin: 0 0 16px 0;
-  line-height: 1.1;
-}
-
-/* Decorative Divider */
-.divider {
-  border: 0;
-  height: 4px;
-  width: 50px;
-  background: #FFCD00; /* Caterpillar Yellow */
-  margin: 0 0 20px 0;
-}
-
-/* Body Text */
-.description {
-  color: #4a5568;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.description strong {
-  color: #1a2b3c;
-}
-
-/* Button */
-.view-details {
-  background: #1a2b3c;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  width: 100%;
-  transition: background 0.3s ease;
-}
-
-.view-details:hover {
-  background: #FFCD00;
-  color: #000;
-}
-
     </style>
 </head>
 <body>
@@ -231,235 +205,49 @@
         </div>
     </div>
 
-<section class="equipment-gallery">
-    <h2 class="section-title">Our Equipment</h2>
-    
-    <div class="equipment-grid">
-        <article class="equipment-card">
-            <div class="image-container">
-                <img src="./img/equipmentcatalog/Caterpillar_312B.jpg" alt="Model 312B">
+     <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="display-5 mb-4">Heavy Hauling Transport</h1>
             </div>
-            <div class="content">
-                <span class="brand-label">CATERPILLAR</span>
-                <h1 class="model-title">Model 312B</h1>
-
-                <hr class="divider">
-
-               <p class="description">
-    Steel tracked hydraulic excavator with breakerline, 
-    <strong>0.50 cubic meter</strong> bucket capacity.
-  </p>
-          <button class="view-details">Get a Quote</button>
+    <div class="category-grid">
+        <div class="category-card" onclick="openEquipmentModal('trucks')">
+            <div class="card-content">
+                <h3>Trucks<br>Transport</h3>
+                <img src="./img/equipmentcatalog/categories/Trucks3.png" alt="Truck">
+                <span class="learn-more">Learn More</span>
             </div>
-        </article>
+        </div>
 
-    
-
-  <article class="equipment-card">
-            <div class="image-container">
-                <img src="./img/equipmentcatalog/Caterpillar_320DRR.jpg" alt="Model 320DRR">
+        <div class="category-card" onclick="openEquipmentModal('bulldozer')">
+            <div class="card-content">
+                <h3>Bulldozer<br>Transport</h3>
+                <img src="./img/equipmentcatalog/categories/Bulldozer1.png" alt="Bulldozer">
+                <span class="learn-more">Learn More</span>
             </div>
-            <div class="content">
-                <span class="brand-label">CATERPILLAR</span>
-                <h1 class="model-title">Model 320DRR</h1>
+        </div>
 
-                <hr class="divider">
-
-               <p class="description">
-    Steel tracked hydraulic excavator with breakerline, <strong>0.75</strong> cubic meter bucket capacity
-  </p>
-          <button class="view-details">Get a Quote</button>
+        <div class="category-card" onclick="openEquipmentModal('excavator')">
+            <div class="card-content">
+                <h3>Pisont<br>Transport</h3>
+                <img src="./img/equipmentcatalog/categories/Excavator2.png" alt="Excavator">
+                <span class="learn-more">Learn More</span>
             </div>
-        </article>
-
-  <article class="equipment-card">
-            <div class="image-container">
-                <img src="./img/equipmentcatalog/Caterpillar_D3B.jpg" alt="Model D3B">
-            </div>
-            <div class="content">
-                <span class="brand-label">CATERPILLAR</span>
-                <h1 class="model-title">Model D3B</h1>
-
-                <hr class="divider">
-
-               <p class="description">
-    Steel tracked, 6 way , bulldozer
-  </p>
-          <button class="view-details">Get a Quote</button>
-            </div>
-        </article>
-
-
-
-
-    
-<article class="equipment-card video-card" onclick="openModal('img/equipmentcatalog/Caterpillar_E70B.mp4')">
-    <div class="image-container">
-        <img src="./img/equipmentcatalog/Caterpillar_E70B.jpg" alt="Model E70B">
-        <div class="play-overlay">
-            <span class="play-icon">▶</span>
         </div>
     </div>
-    <div class="content">
-         <div class="content">
-                <span class="brand-label">CATERPILLAR</span>
-                <h1 class="model-title">Model E70B</h1>
 
-                <hr class="divider">
-
-               <p class="description">
-    Steel tracked hydraulic excavator with breakerline, 0.25 cubic meter bucket capacity
-  </p>
-          <button class="view-details">Get a Quote</button>
+    <div id="equipmentModal" class="modal-overlay">
+        <div class="modal-window">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header-area">
+                <h1 id="modal-category-title">CATEGORY TITLE</h1>
+                <select class="unit-select">
+                    <option>Select Unit</option>
+                </select>
             </div>
-    
-    </div>
-</article>
-
-<div id="videoModal" class="modal">
-    <span class="close-modal">&times;</span>
-    <div class="modal-content">
-        <video id="modalVideo" controls>
-            <source src="./img/equipmentcatalog/Caterpillar_E70B.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-</div>
-
-
- <article class="equipment-card">
-            <div class="image-container">
-                <img src="./img/equipmentcatalog/Fuso_Great.jpg" alt="Great">
-            </div>
-            <div class="content">
-                <span class="brand-label">Fuso</span>
-                <h1 class="model-title">Model Great</h1>
-
-                <hr class="divider">
-
-               <p class="description">
-    12 Wheeler  Selfloading Truck , 25 Tonner capacity
-  </p>
-          <button class="view-details">Get a Quote</button>
-            </div>
-        </article>
-
- <article class="equipment-card">
-            <div class="image-container">
-                <img src="./img/equipmentcatalog/Isuzu_Giga2.jpg" alt="Giga">
-            </div>
-            <div class="content">
-                <span class="brand-label">Isuzu</span>
-                <h1 class="model-title">Model Giga</h1>
-
-                <hr class="divider">
-
-               <p class="description">
-    6 Wheeler  Dump Truck , 3 cubic meter dump box capacity
-  </p>
-          <button class="view-details">Get a Quote</button>
-            </div>
-        </article>
-
- <article class="equipment-card">
-            <div class="image-container">
-                <img src="./img/equipmentcatalog/Hanix_N300-2.jpg" alt="Hanix_N300-2">
-            </div>
-            <div class="content">
-                <span class="brand-label">Hanix_N300-2</span>
-                <h1 class="model-title">Model N300-2</h1>
-
-                <hr class="divider">
-
-               <p class="description">
-    Steel tracked hydraulic excavator with breakerline, 0.10cubic meter bucket capacity
-  </p>
-          <button class="view-details">Get a Quote</button>
-            </div>
-        </article>
-
- <article class="equipment-card">
-            <div class="image-container">
-                <img src="./img/equipmentcatalog/Hanix_N300-2.jpg" alt="Isuzu_Giga">
-            </div>
-            <div class="content">
-                <span class="brand-label">Isuzu</span>
-                <h1 class="model-title">Model Giga</h1>
-
-                <hr class="divider">
-
-               <p class="description">
-    Steel tracked hydraulic excavator with breakerline, 0.10cubic meter bucket capacity
-  </p>
-          <button class="view-details">Get a Quote</button>
-            </div>
-        </article>
-
-
-</section>
-
-
-    <section class="cta-container position-relative overflow-hidden py-5 px-3">
-        <a href="#" class="stretched-link text-decoration-none"></a>
-
-        <div class="container text-center py-4">
-            <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-8">
-
-                    <p class="orange-label fw-bold mb-3" style="color:#FFEB3B !important;">GET A QUOTE TODAY</p>
-
-                    <h2 class="display-5 fw-bold text-white mb-3">
-                        Need equipment for your next project?
-                    </h2>
-
-                    <a href="requestform.php"></a>
-                    <p class="h4 text-light opacity-90 fw-light" style="color:#FFEB3B !important;">
-                        👉 Request a quotation today and let us help you get started!
-                    </p></a>
-
+            <div id="equipment-list-container">
                 </div>
-            </div>
         </div>
-    </section>
-
-
-
-<script>
-function openModal(videoSrc) {
-    const modal = document.getElementById("videoModal");
-    const video = document.getElementById("modalVideo");
-    
-    modal.style.display = "block";
-    video.src = videoSrc; 
-    video.play();
-}
-
-// Close modal when clicking 'X'
-document.querySelector(".close-modal").onclick = function() {
-    closeVideo();
-};
-
-// Close modal when clicking outside the video
-window.onclick = function(event) {
-    const modal = document.getElementById("videoModal");
-    if (event.target == modal) {
-        closeVideo();
-    }
-};
-
-function closeVideo() {
-    const modal = document.getElementById("videoModal");
-    const video = document.getElementById("modalVideo");
-    modal.style.display = "none";
-    video.pause();
-    video.src = ""; // Clears source to stop loading
-}
-
-
-
-</script>
-
-
+    </div>
+     <script src="script/categories.js"></script>
 
     <?php require 'footertemplate.php'; ?>
 </body>
