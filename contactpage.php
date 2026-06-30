@@ -8,7 +8,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Rubik:wght@500;600;700&display=swap"
+        rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -20,14 +22,26 @@
 
     <style>
         :root {
-            --primary-gold: #FFD333; /* The bright yellow from your image */
-            --dark-navy: #001C44;    /* The deep navy from your image */
+            --primary-gold: #FFD333;
+            /* The bright yellow from your image */
+            --dark-navy: #001C44;
+            /* The deep navy from your image */
             --light-bg: #F4F7F9;
-            --transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            --transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        body { font-family: 'Open Sans', sans-serif; background-color: #fff; }
-        h1, h2, h3, h4, .rubik { font-family: 'Rubik', sans-serif; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #fff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .rubik {
+            font-family: 'Rubik', sans-serif;
+        }
 
         /* Page Header Enhancement */
         .page-header {
@@ -36,8 +50,10 @@
         }
 
         /* Contact Cards */
-        .contact-section { background-color: var(--light-bg); }
-        
+        .contact-section {
+            background-color: var(--light-bg);
+        }
+
         .contact-card {
             background: #ffffff;
             border-radius: 12px;
@@ -61,7 +77,7 @@
             justify-content: center;
             margin: 0 auto;
             border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             color: var(--primary-gold);
             border: 1px solid #eee;
         }
@@ -100,10 +116,10 @@
         .map-container {
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .form-floating > .form-control:focus {
+        .form-floating>.form-control:focus {
             border-color: var(--primary-gold);
             box-shadow: 0 0 0 0.25rem rgba(255, 211, 51, 0.25);
         }
@@ -119,18 +135,19 @@
         }
 
         .contact-section {
-    background-color: #393B3A;
-}
+            background-color: #393B3A;
+        }
     </style>
 </head>
 
 <body>
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
     </div>
 
     <?php require 'headertemplate.php'; ?>
-   
+
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <h1 class="display-3 text-white animated slideInRight">Get In Touch</h1>
@@ -151,7 +168,8 @@
                         <div class="icon-box mb-4"><i class="fa fa-phone-alt fa-2x"></i></div>
                         <h4 class="mb-3">Phone Number</h4>
                         <div class="info-pill mb-4"><span>+09228514433</span></div>
-                        <a class="btn btn-custom px-4" href="tel:+0123456789">Call Now <i class="fa fa-arrow-right ms-2"></i></a>
+                        <a class="btn btn-custom px-4" href="tel:+0123456789">Call Now <i
+                                class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -159,7 +177,8 @@
                         <div class="icon-box mb-4"><i class="fa fa-envelope-open fa-2x"></i></div>
                         <h4 class="mb-3">Email Address</h4>
                         <div class="info-pill mb-4"><span>hmcf.prime@gmail.com</span></div>
-                        <a class="btn btn-custom px-4" href="mailto:hmcf.prime@gmail.com">Email Now <i class="fa fa-arrow-right ms-2"></i></a>
+                        <a class="btn btn-custom px-4" href="mailto:hmcf.prime@gmail.com">Email Now <i
+                                class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -167,7 +186,8 @@
                         <div class="icon-box mb-4"><i class="fa fa-map-marker-alt fa-2x"></i></div>
                         <h4 class="mb-3">Office Address</h4>
                         <div class="info-pill mb-4"><span>215 Arevalo Street, Muntinlupa City</span></div>
-                        <a class="btn btn-custom px-4" href="https://maps.google.com" target="_blank">Direction <i class="fa fa-arrow-right ms-2"></i></a>
+                        <a class="btn btn-custom px-4" href="https://maps.google.com" target="_blank">Direction <i
+                                class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -179,44 +199,57 @@
                         <h1 class="display-5 mb-4">Our Location</h1>
                     </div>
                     <div class="map-container mb-4 mb-lg-0">
-                        <iframe class="w-100" style="height: 400px; border:0;" 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3864.83!2d121.04!3d14.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDI0JzAwLjAiTiAxMjHCsDAyJzI0LjAiRQ!5e0!3m2!1sen!2sph!4v123456789" 
-                        allowfullscreen="" loading="lazy"></iframe>
+                        <iframe class="w-100" style="height: 400px; border:0;"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3864.83!2d121.04!3d14.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDI0JzAwLjAiTiAxMjHCsDAyJzI0LjAiRQ!5e0!3m2!1sen!2sph!4v123456789"
+                            allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
 
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="bg-light p-5 rounded-3">
                         <h2 class="mb-4">Send Us a Message</h2>
-                        <form>
+                        <form method="POST" action="php/contact_submit.php">
                             <div class="row g-3">
+
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
+                                        <input type="text" class="form-control border-0" id="name" name="name"
+                                            placeholder="Your Name" required>
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control border-0" id="email" placeholder="Your Email">
+                                        <input type="email" class="form-control border-0" id="email" name="email"
+                                            placeholder="Your Email" required>
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="subject" placeholder="Subject">
+                                        <input type="text" class="form-control border-0" id="subject" name="subject"
+                                            placeholder="Subject" required>
                                         <label for="subject">Subject</label>
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                        <textarea class="form-control border-0" id="message" name="message"
+                                            placeholder="Leave a message here" style="height: 150px"
+                                            required></textarea>
                                         <label for="message">Message</label>
                                     </div>
                                 </div>
+
                                 <div class="col-12">
-                                    <button class="btn btn-custom w-100 py-3" type="submit">Send Message</button>
+                                    <button class="btn btn-custom w-100 py-3" type="submit">
+                                        Send Message
+                                    </button>
                                 </div>
+
                             </div>
                         </form>
                     </div>
@@ -232,4 +265,5 @@
     <script src="lib/wow/wow.min.js"></script>
     <script>new WOW().init();</script>
 </body>
+
 </html>

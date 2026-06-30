@@ -131,6 +131,6 @@ $body =  "
 </html>
 ";
 sendEmail("hmcf.prime@gmail.com", "New Request", $body,"Admin");
-// header("Location: ../index.php"); // or your homepage file hmcf.prime@gmail.com
-// exit();
+header("Location: ../index.php"); // or your homepage file hmcf.prime@gmail.com
+exit();
 ?>

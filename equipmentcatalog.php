@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,10 +28,10 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            transform: skewX(-15deg); 
+            transform: skewX(-15deg);
             transition: all 0.3s ease;
             border: none;
-            box-shadow: 10px 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
         }
 
         .category-card:hover {
@@ -39,7 +40,7 @@
         }
 
         .card-content {
-            transform: skewX(15deg); 
+            transform: skewX(15deg);
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -54,15 +55,15 @@
             margin: 0;
             text-align: left;
             line-height: 1.1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .card-content img {
             width: 140%;
-            margin-left: -20%; 
+            margin-left: -20%;
             margin-top: auto;
             margin-bottom: auto;
-            filter: drop-shadow(0px 20px 15px rgba(0,0,0,0.6));
+            filter: drop-shadow(0px 20px 15px rgba(0, 0, 0, 0.6));
         }
 
         .learn-more {
@@ -82,16 +83,18 @@
             display: none;
             position: fixed;
             z-index: 10000;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
             overflow-y: auto;
         }
 
         .modal-window {
             background-color: #f4f7f9;
-            background-image: linear-gradient(45deg, #ffffff 25%, transparent 25%), 
-                              linear-gradient(-45deg, #ffffff 25%, transparent 25%);
+            background-image: linear-gradient(45deg, #ffffff 25%, transparent 25%),
+                linear-gradient(-45deg, #ffffff 25%, transparent 25%);
             background-size: 60px 60px;
             margin: 2% auto;
             width: 90%;
@@ -133,7 +136,7 @@
             grid-template-columns: 1.5fr 2fr 1.5fr 1.5fr;
             gap: 20px;
             border-left: 6px solid #004a80;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             align-items: start;
         }
 
@@ -158,7 +161,8 @@
 
         .close-modal {
             position: absolute;
-            top: 15px; right: 25px;
+            top: 15px;
+            right: 25px;
             font-size: 35px;
             cursor: pointer;
             color: #333;
@@ -181,14 +185,135 @@
         }
 
         .modal-header-area {
-    position: sticky;
-    top: -40px; /* Adjust based on your modal padding */
-    background-color: #f4f7f9;
-    z-index: 10;
-    padding-top: 20px;
-}
+            position: sticky;
+            top: -40px;
+            /* Adjust based on your modal padding */
+            background-color: #f4f7f9;
+            z-index: 10;
+            padding-top: 20px;
+        }
+
+        /* =========================
+   TABLET (992px below)
+========================= */
+        @media (max-width: 992px) {
+
+            .category-grid {
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .category-card {
+                width: 280px;
+                height: 400px;
+            }
+
+            .unit-detail-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .unit-detail-row img {
+                grid-column: span 2;
+                max-width: 500px;
+                margin: auto;
+            }
+        }
+
+
+        /* =========================
+   MOBILE (768px below)
+========================= */
+        @media (max-width: 768px) {
+
+            /* Category Cards */
+            .category-grid {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 10px;
+                gap: 20px;
+            }
+
+            .category-card {
+                width: 90%;
+                max-width: 320px;
+                height: 350px;
+                transform: none;
+            }
+
+            .category-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card-content {
+                transform: none;
+                padding: 25px;
+            }
+
+            .card-content h3 {
+                font-size: 22px;
+            }
+
+            .card-content img {
+                width: 100%;
+                margin: auto;
+            }
+
+            /* Modal */
+            .modal-window {
+                width: 95%;
+                padding: 15px;
+                margin: 20px auto;
+            }
+
+            .modal-header-area {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                position: static;
+            }
+
+            .modal-header-area h1 {
+                font-size: 24px;
+            }
+
+            .unit-select {
+                width: 100%;
+                min-width: auto;
+            }
+
+            /* Equipment Details */
+            .unit-detail-row {
+                grid-template-columns: 1fr;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .unit-detail-row img {
+                width: 100%;
+            }
+
+            .unit-detail-row h4 {
+                font-size: 16px;
+            }
+
+            .unit-detail-row p {
+                font-size: 13px;
+            }
+
+            .get-quote-btn {
+                width: 100%;
+            }
+
+            .close-modal {
+                top: 10px;
+                right: 15px;
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <?php require 'headertemplate.php'; ?>
 
@@ -205,9 +330,9 @@
         </div>
     </div>
 
-     <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="display-5 mb-4">Heavy Hauling Transport</h1>
-            </div>
+    <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+        <h1 class="display-5 mb-4">Heavy Hauling Transport</h1>
+    </div>
     <div class="category-grid">
         <div class="category-card" onclick="openEquipmentModal('trucks')">
             <div class="card-content">
@@ -244,11 +369,12 @@
                 </select>
             </div>
             <div id="equipment-list-container">
-                </div>
+            </div>
         </div>
     </div>
-     <script src="script/categories.js"></script>
+    <script src="script/categories.js"></script>
 
     <?php require 'footertemplate.php'; ?>
 </body>
+
 </html>
