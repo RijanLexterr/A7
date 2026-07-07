@@ -1,0 +1,65 @@
+<div class="mb-3">
+  <h1 class="h4 mb-0">{{ vm.isEdit ? 'Edit Customer' : 'Add Customer' }}</h1>
+</div>
+
+<div class="alert alert-danger" ng-if="vm.error">{{ vm.error }}</div>
+
+<div class="card shadow-sm">
+  <div class="card-body p-4">
+    <form name="customerForm" novalidate>
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Customer Type <span class="text-danger">*</span></label>
+          <select class="form-select" ng-model="vm.customer.customer_type" required>
+            <option value="Individual">Individual</option>
+            <option value="Company">Company</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Full Name / Company Name <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" ng-model="vm.customer.full_name" required>
+        </div>
+
+        <div class="col-md-6" ng-if="vm.customer.customer_type === 'Company'">
+          <label class="form-label small fw-semibold">Contact Person</label>
+          <input type="text" class="form-control" ng-model="vm.customer.contact_person">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Contact Number <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" ng-model="vm.customer.contact_number" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Email Address</label>
+          <input type="email" class="form-control" ng-model="vm.customer.email">
+        </div>
+
+        <div class="col-12">
+          <label class="form-label small fw-semibold">Complete Address <span class="text-danger">*</span></label>
+          <textarea class="form-control" rows="2" ng-model="vm.customer.address" required></textarea>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label small fw-semibold">Project / Delivery Site</label>
+          <textarea class="form-control" rows="2" ng-model="vm.customer.project_site"></textarea>
+          <div class="form-text">Where hauling jobs for this customer usually take place, if different from the address above.</div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label small fw-semibold">Remarks / Notes</label>
+          <textarea class="form-control" rows="2" ng-model="vm.customer.remarks"></textarea>
+        </div>
+      </div>
+
+      <div class="d-flex gap-2 mt-4">
+        <button type="button" class="btn btn-primary" ng-click="vm.save(customerForm)" ng-disabled="vm.saving">
+          {{ vm.saving ? 'Saving...' : 'Save Customer' }}
+        </button>
+        <button type="button" class="btn btn-outline-secondary" ng-click="vm.cancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

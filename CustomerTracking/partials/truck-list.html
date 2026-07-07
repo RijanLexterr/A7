@@ -1,0 +1,83 @@
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+  <h1 class="h4 mb-0">Trucks &amp; Equipment</h1>
+  <button class="btn btn-primary btn-sm" ng-click="vm.newTruck()"><i class="bi bi-plus-lg me-1"></i>Add Truck / Equipment</button>
+</div>
+
+<div class="card shadow-sm mb-3" ng-if="vm.showForm">
+  <div class="card-body p-4">
+    <form name="truckForm" novalidate>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Plate Number <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" ng-model="vm.truck.plate_number" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Truck / Equipment Type <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" ng-model="vm.truck.truck_type" placeholder="e.g., Dump Truck, Backhoe" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Capacity</label>
+          <input type="text" class="form-control" ng-model="vm.truck.capacity" placeholder="e.g., 10 wheeler">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Status</label>
+          <select class="form-select" ng-model="vm.truck.status">
+            <option value="Available">Available</option>
+            <option value="Assigned">Assigned</option>
+            <option value="Under Maintenance">Under Maintenance</option>
+          </select>
+        </div>
+      </div>
+      <div class="alert alert-danger mt-3 mb-0" ng-if="vm.error">{{ vm.error }}</div>
+      <div class="d-flex gap-2 mt-4">
+        <button type="button" class="btn btn-primary" ng-click="vm.save(truckForm)">Save</button>
+        <button type="button" class="btn btn-outline-secondary" ng-click="vm.cancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="text-muted" ng-if="vm.loading">Loading fleet list...</div>
+
+<div ng-if="!vm.loading">
+  <div class="card shadow-sm">
+    <div class="text-center text-muted py-5" ng-if="vm.trucks.length === 0">
+      No trucks yet. Add your first truck or piece of equipment above.
+    </div>
+
+    <div class="table-responsive" ng-if="vm.trucks.length > 0">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th>Plate No.</th>
+            <th>Type</th>
+            <th>Capacity</th>
+            <th>Status</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="t in vm.trucks">
+            <td class="fw-semibold">{{ t.plate_number }}</td>
+            <td>{{ t.truck_type }}</td>
+            <td>{{ t.capacity || '—' }}</td>
+            <td>
+              <span class="badge"
+                    ng-class="{'text-bg-success-subtle text-success-emphasis': t.status==='Available',
+                               'text-bg-warning-subtle text-warning-emphasis': t.status==='Assigned',
+                               'text-bg-danger-subtle text-danger-emphasis': t.status==='Under Maintenance'}">
+                {{ t.status }}
+              </span>
+            </td>
+            <td class="text-end">
+              <div class="d-inline-flex gap-1">
+                <button class="btn btn-outline-secondary btn-sm" ng-click="vm.editTruck(t)">Edit</button>
+                <button class="btn btn-outline-danger btn-sm" ng-click="vm.archive(t)">Remove</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

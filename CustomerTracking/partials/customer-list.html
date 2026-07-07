@@ -1,0 +1,57 @@
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+  <h1 class="h4 mb-0">Customers</h1>
+  <a href="#!/customers/new" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add Customer</a>
+</div>
+
+<div class="input-group mb-3" style="max-width:420px;">
+  <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+  <input type="text" class="form-control" placeholder="Search by name, contact number, email..."
+         ng-model="vm.search" ng-change="vm.doSearch()">
+</div>
+
+<div class="alert alert-danger" ng-if="vm.error">{{ vm.error }}</div>
+<div class="text-muted" ng-if="vm.loading">Loading customers...</div>
+
+<div ng-if="!vm.loading">
+  <div class="card shadow-sm">
+    <div class="text-center text-muted py-5" ng-if="vm.customers.length === 0">
+      No customers found. <a href="#!/customers/new">Add your first customer.</a>
+    </div>
+
+    <div class="table-responsive" ng-if="vm.customers.length > 0">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Contact No.</th>
+            <th>Address / Project Site</th>
+            <th>Registered</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="c in vm.customers">
+            <td class="fw-semibold">{{ c.full_name }}</td>
+            <td>{{ c.customer_type }}</td>
+            <td>{{ c.contact_number }}</td>
+            <td>{{ c.project_site || c.address }}</td>
+            <td>{{ c.created_at | date:'MMM d, y' }}</td>
+            <td class="text-end">
+              <div class="d-inline-flex gap-1">
+                <a href="#!/customers/{{c.id}}/edit" class="btn btn-outline-secondary btn-sm">Edit</a>
+                <button class="btn btn-outline-danger btn-sm" ng-click="vm.archive(c)">Archive</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center gap-3 mt-3 small text-muted" ng-if="vm.total > vm.perPage">
+    <button class="btn btn-outline-secondary btn-sm" ng-click="vm.prevPage()" ng-disabled="vm.page===1">&laquo; Prev</button>
+    <span>Page {{ vm.page }} of {{ (vm.total / vm.perPage) | number:0 }}</span>
+    <button class="btn btn-outline-secondary btn-sm" ng-click="vm.nextPage()" ng-disabled="vm.page*vm.perPage >= vm.total">Next &raquo;</button>
+  </div>
+</div>

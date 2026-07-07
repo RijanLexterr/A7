@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HMCF Prime - Receipt</title>
+<style>
+  :root { --navy:#1f3864; --gold:#b8860b; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef1f5;
+    margin: 0;
+    padding: 20px;
+    color: #222;
+  }
+  .toolbar {
+    max-width: 720px;
+    margin: 0 auto 16px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  .toolbar button {
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 46px;
+  }
+  .btn-print { background: var(--navy); color: #fff; }
+  .btn-close { background: #fff; color: var(--navy); border: 1.5px solid var(--navy) !important; }
+
+  .receipt {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 34px 36px;
+  }
+  .receipt-header { text-align: center; border-bottom: 3px solid var(--gold); padding-bottom: 14px; margin-bottom: 18px; }
+  .receipt-header h1 { margin: 0; color: var(--navy); font-size: 1.4rem; }
+  .receipt-header p { margin: 4px 0 0; font-size: .85rem; color: #555; }
+  .receipt-title { text-align: center; font-weight: 700; letter-spacing: 1px; margin: 14px 0 22px; font-size: 1.1rem; color: #222; }
+
+  .meta-row { display: flex; justify-content: space-between; font-size: .92rem; margin-bottom: 18px; flex-wrap: wrap; gap: 8px; }
+  .meta-row b { color: var(--navy); }
+
+  .info-table { width: 100%; border-collapse: collapse; margin-bottom: 22px; }
+  .info-table td { padding: 8px 4px; font-size: .92rem; vertical-align: top; border-bottom: 1px dashed #e2e2e2; }
+  .info-table td.label { width: 38%; color: #666; }
+  .info-table td.value { font-weight: 600; }
+
+  .amount-box { text-align: right; font-size: 1.05rem; margin: 14px 0 26px; }
+  .amount-box b { color: var(--navy); }
+
+  .sign-row { display: flex; justify-content: space-between; margin-top: 60px; gap: 24px; }
+  .sign-block { flex: 1; text-align: center; }
+  .sign-line { border-top: 1px solid #333; margin-bottom: 6px; }
+  .sign-block small { color: #555; }
+
+  .remarks-box { font-size: .88rem; color: #555; margin-top: 10px; }
+
+  .loading, .error { text-align: center; padding: 60px 20px; color: #666; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .toolbar { display: none; }
+    .receipt { border: none; max-width: 100%; padding: 0 10px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="toolbar no-print">
+    <button class="btn-close" onclick="window.close()">Close</button>
+    <button class="btn-print" onclick="window.print()">Print</button>
+  </div>
+
+  <div id="loading" class="loading">Loading receipt...</div>
+  <div id="errorBox" class="error" style="display:none;"></div>
+
+  <div class="receipt" id="receiptBox" style="display:none;">
+    <div class="receipt-header">
+      <h1>HMCF PRIME CORPORATION</h1>
+      <!-- TODO: replace with your actual business address / contact details -->
+      <p>215 Arevalo Street, Muntinlupa City &nbsp;|&nbsp; +0922 851 4433 &nbsp;|&nbsp; hmcf.prime@gmail.com</p>
+      <p>hmcfprime.online</p>
+    </div>
+
+    <div class="receipt-title">ACKNOWLEDGEMENT RECEIPT</div>
+
+    <div class="meta-row">
+      <div><b>Receipt No.:</b> <span id="receiptNo"></span></div>
+      <div><b>Date:</b> <span id="dateAssigned"></span></div>
+    </div>
+
+    <table class="info-table">
+      <tr><td class="label">Customer</td><td class="value" id="customerName"></td></tr>
+      <tr><td class="label">Contact No.</td><td class="value" id="customerContact"></td></tr>
+      <tr><td class="label">Address</td><td class="value" id="customerAddress"></td></tr>
+      <tr><td class="label">Truck / Equipment</td><td class="value" id="truckInfo"></td></tr>
+      <tr><td class="label">Driver / Operator</td><td class="value" id="driverName"></td></tr>
+      <tr><td class="label">Service Type</td><td class="value" id="serviceType"></td></tr>
+      <tr><td class="label">Pickup Location</td><td class="value" id="pickupLocation"></td></tr>
+      <tr><td class="label">Destination / Site</td><td class="value" id="destination"></td></tr>
+      <tr><td class="label">Duration / Trips</td><td class="value" id="duration"></td></tr>
+      <tr><td class="label">Status</td><td class="value" id="status"></td></tr>
+    </table>
+
+    <div class="amount-box" id="amountBox" style="display:none;">
+      Amount: <b id="amount"></b>
+    </div>
+
+    <div class="remarks-box" id="remarksBox" style="display:none;">
+      <b>Remarks:</b> <span id="remarks"></span>
+    </div>
+
+    <div class="sign-row">
+      <div class="sign-block">
+        <div class="sign-line">&nbsp;</div>
+        <small>Customer / Representative Signature</small>
+      </div>
+      <div class="sign-block">
+        <div class="sign-line">&nbsp;</div>
+        <small>Authorized Company Signatory</small>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function qs(name) {
+      var params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    function formatDate(str) {
+      if (!str) return '';
+      var d = new Date(str + 'T00:00:00');
+      if (isNaN(d.getTime())) return str;
+      return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function formatMoney(v) {
+      if (v === null || v === undefined || v === '') return '';
+      var n = parseFloat(v);
+      return 'PHP ' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    var id = qs('id');
+    if (!id) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('errorBox').style.display = 'block';
+      document.getElementById('errorBox').textContent = 'Missing receipt id.';
+    } else {
+      fetch('../api/assignments.php?id=' + encodeURIComponent(id), { credentials: 'include' })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          document.getElementById('loading').style.display = 'none';
+          if (!json.success) {
+            document.getElementById('errorBox').style.display = 'block';
+            document.getElementById('errorBox').textContent = json.message || 'Could not load receipt.';
+            return;
+          }
+          var a = json.data;
+          document.getElementById('receiptNo').textContent = a.receipt_no;
+          document.getElementById('dateAssigned').textContent = formatDate(a.date_assigned);
+          document.getElementById('customerName').textContent = a.customer_name;
+          document.getElementById('customerContact').textContent = a.customer_contact;
+          document.getElementById('customerAddress').textContent = a.customer_address;
+          document.getElementById('truckInfo').textContent = a.plate_number + ' — ' + a.truck_type;
+          document.getElementById('driverName').textContent = a.driver_name;
+          document.getElementById('serviceType').textContent = a.service_type;
+          document.getElementById('pickupLocation').textContent = a.pickup_location;
+          document.getElementById('destination').textContent = a.destination;
+          document.getElementById('duration').textContent = a.duration || '—';
+          document.getElementById('status').textContent = a.status;
+
+          if (a.amount) {
+            document.getElementById('amountBox').style.display = 'block';
+            document.getElementById('amount').textContent = formatMoney(a.amount);
+          }
+          if (a.remarks) {
+            document.getElementById('remarksBox').style.display = 'block';
+            document.getElementById('remarks').textContent = a.remarks;
+          }
+
+          document.getElementById('receiptBox').style.display = 'block';
+          document.title = 'Receipt ' + a.receipt_no;
+        })
+        .catch(function () {
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('errorBox').style.display = 'block';
+          document.getElementById('errorBox').textContent = 'Network error while loading the receipt.';
+        });
+    }
+  </script>
+</body>
+</html>

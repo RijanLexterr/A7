@@ -1,0 +1,106 @@
+<div class="mb-3">
+  <h1 class="h4 mb-0">{{ vm.isEdit ? 'Edit Assignment' : 'New Truck Assignment' }}</h1>
+</div>
+
+<div class="alert alert-danger" ng-if="vm.error">{{ vm.error }}</div>
+
+<div class="card shadow-sm" ng-if="vm.justSavedId">
+  <div class="card-body p-4">
+    <div class="alert alert-success mb-3">
+      Assignment saved successfully{{ vm.isEdit ? '' : ' — receipt has been generated' }}.
+    </div>
+    <div class="d-flex gap-2">
+      <button type="button" class="btn btn-primary" ng-click="vm.printReceipt()">
+        <i class="bi bi-printer me-1"></i>Print Receipt / Acknowledgement Letter
+      </button>
+      <button type="button" class="btn btn-outline-secondary" ng-click="vm.doneAndBackToList()">Back to Assignments List</button>
+    </div>
+  </div>
+</div>
+
+<div class="card shadow-sm" ng-if="!vm.justSavedId">
+  <div class="card-body p-4">
+    <form name="assignmentForm" novalidate>
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Customer <span class="text-danger">*</span></label>
+          <select class="form-select" ng-model="vm.assignment.customer_id" required>
+            <option value="" disabled>-- Select customer --</option>
+            <option ng-repeat="c in vm.customers" value="{{c.id}}">{{ c.full_name }} ({{ c.contact_number }})</option>
+          </select>
+          <div class="form-text">Customer not listed? <a href="#!/customers/new">Add them first.</a></div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Date of Assignment <span class="text-danger">*</span></label>
+          <input type="date" class="form-control" ng-model="vm.assignment.date_assigned" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Truck / Equipment <span class="text-danger">*</span></label>
+          <select class="form-select" ng-model="vm.assignment.truck_id" required>
+            <option value="" disabled>-- Select truck/equipment --</option>
+            <option ng-repeat="t in vm.trucks" value="{{t.id}}">{{ t.plate_number }} — {{ t.truck_type }}</option>
+          </select>
+          <div class="form-text">Only trucks marked "Available" are listed. <a href="#!/trucks">Manage fleet.</a></div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Driver / Operator Name <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" ng-model="vm.assignment.driver_name" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Service Type <span class="text-danger">*</span></label>
+          <select class="form-select" ng-model="vm.assignment.service_type" required>
+            <option value="Hauling">Hauling</option>
+            <option value="Equipment Rental">Equipment Rental</option>
+            <option value="Site Preparation">Site Preparation</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Status <span class="text-danger">*</span></label>
+          <select class="form-select" ng-model="vm.assignment.status" required>
+            <option value="Pending">Pending</option>
+            <option value="Ongoing">Ongoing</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Pickup Location <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" ng-model="vm.assignment.pickup_location" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Destination / Site <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" ng-model="vm.assignment.destination" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Duration / No. of Trips</label>
+          <input type="text" class="form-control" ng-model="vm.assignment.duration" placeholder="e.g., 3 trips, 8 hours">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Rate / Amount (PHP)</label>
+          <input type="number" min="0" step="0.01" class="form-control" ng-model="vm.assignment.amount" placeholder="Optional">
+        </div>
+
+        <div class="col-12">
+          <label class="form-label small fw-semibold">Remarks</label>
+          <textarea class="form-control" rows="2" ng-model="vm.assignment.remarks"></textarea>
+        </div>
+      </div>
+
+      <div class="d-flex gap-2 mt-4">
+        <button type="button" class="btn btn-primary" ng-click="vm.save(assignmentForm)" ng-disabled="vm.saving">
+          {{ vm.saving ? 'Saving...' : (vm.isEdit ? 'Update Assignment' : 'Save & Continue') }}
+        </button>
+        <button type="button" class="btn btn-outline-secondary" ng-click="vm.cancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

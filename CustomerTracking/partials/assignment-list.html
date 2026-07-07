@@ -1,0 +1,73 @@
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+  <h1 class="h4 mb-0">Truck Assignments</h1>
+  <a href="#!/assignments/new" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>New Assignment</a>
+</div>
+
+<div class="d-flex flex-wrap gap-2 mb-3">
+  <div class="input-group" style="max-width:380px;">
+    <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+    <input type="text" class="form-control" placeholder="Search receipt no., customer, or plate no..."
+           ng-model="vm.search" ng-change="vm.doSearch()">
+  </div>
+  <select class="form-select" style="max-width:180px;" ng-model="vm.status" ng-change="vm.doSearch()">
+    <option value="">All Statuses</option>
+    <option value="Pending">Pending</option>
+    <option value="Ongoing">Ongoing</option>
+    <option value="Completed">Completed</option>
+  </select>
+</div>
+
+<div class="text-muted" ng-if="vm.loading">Loading assignments...</div>
+
+<div ng-if="!vm.loading">
+  <div class="card shadow-sm">
+    <div class="text-center text-muted py-5" ng-if="vm.assignments.length === 0">
+      No truck assignments yet. <a href="#!/assignments/new">Create the first one.</a>
+    </div>
+
+    <div class="table-responsive" ng-if="vm.assignments.length > 0">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th>Receipt No.</th>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Truck</th>
+            <th>Service</th>
+            <th>Status</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="a in vm.assignments">
+            <td class="fw-semibold">{{ a.receipt_no }}</td>
+            <td>{{ a.date_assigned | date:'MMM d, y' }}</td>
+            <td>{{ a.customer_name }}</td>
+            <td>{{ a.plate_number }} — {{ a.truck_type }}</td>
+            <td>{{ a.service_type }}</td>
+            <td>
+              <span class="badge"
+                    ng-class="{'text-bg-danger-subtle text-danger-emphasis': a.status==='Pending',
+                               'text-bg-warning-subtle text-warning-emphasis': a.status==='Ongoing',
+                               'text-bg-success-subtle text-success-emphasis': a.status==='Completed'}">
+                {{ a.status }}
+              </span>
+            </td>
+            <td class="text-end">
+              <div class="d-inline-flex gap-1">
+                <a href="#!/assignments/{{a.id}}/edit" class="btn btn-outline-secondary btn-sm">Edit</a>
+                <button class="btn btn-primary btn-sm" ng-click="vm.printReceipt(a)">Print</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center gap-3 mt-3 small text-muted" ng-if="vm.total > vm.perPage">
+    <button class="btn btn-outline-secondary btn-sm" ng-click="vm.prevPage()" ng-disabled="vm.page===1">&laquo; Prev</button>
+    <span>Page {{ vm.page }} of {{ (vm.total / vm.perPage) | number:0 }}</span>
+    <button class="btn btn-outline-secondary btn-sm" ng-click="vm.nextPage()" ng-disabled="vm.page*vm.perPage >= vm.total">Next &raquo;</button>
+  </div>
+</div>

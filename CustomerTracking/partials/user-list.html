@@ -1,0 +1,67 @@
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-1">
+  <h1 class="h4 mb-0">Staff Accounts</h1>
+  <button class="btn btn-primary btn-sm" ng-click="vm.newUser()"><i class="bi bi-person-plus me-1"></i>Add User</button>
+</div>
+<p class="text-muted small mb-3">Everyone listed here can log in and has the same access level.</p>
+
+<div class="card shadow-sm mb-3" ng-if="vm.showForm">
+  <div class="card-body p-4">
+    <form name="userForm" novalidate>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Full Name <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" ng-model="vm.user.full_name" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Username <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" ng-model="vm.user.username" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">Email</label>
+          <input type="email" class="form-control" ng-model="vm.user.email">
+          <div class="form-text">Needed for this person to use "Forgot password".</div>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold">{{ vm.editingId ? 'New Password' : 'Password' }} {{ vm.editingId ? '' : '*' }}</label>
+          <input type="password" class="form-control" ng-model="vm.user.password" ng-required="!vm.editingId" minlength="6">
+          <div class="form-text" ng-if="vm.editingId">Leave blank to keep the current password.</div>
+        </div>
+      </div>
+      <div class="alert alert-danger mt-3 mb-0" ng-if="vm.error">{{ vm.error }}</div>
+      <div class="d-flex gap-2 mt-4">
+        <button type="button" class="btn btn-primary" ng-click="vm.save(userForm)">Save</button>
+        <button type="button" class="btn btn-outline-secondary" ng-click="vm.cancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="text-muted" ng-if="vm.loading">Loading staff accounts...</div>
+
+<div class="card shadow-sm" ng-if="!vm.loading">
+  <div class="table-responsive" ng-if="vm.users.length > 0">
+    <table class="table table-hover mb-0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="u in vm.users">
+          <td class="fw-semibold">{{ u.full_name }}</td>
+          <td>{{ u.username }}</td>
+          <td>{{ u.email || '—' }}</td>
+          <td class="text-end">
+            <div class="d-inline-flex gap-1">
+              <button class="btn btn-outline-secondary btn-sm" ng-click="vm.editUser(u)">Edit</button>
+              <button class="btn btn-outline-danger btn-sm" ng-click="vm.remove(u)">Remove</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

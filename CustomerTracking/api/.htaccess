@@ -1,0 +1,12 @@
+Options -Indexes
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+<FilesMatch "^(config)\.php$">
+    # config.php is only ever included by other PHP files, never requested directly.
+    # This blocks direct browser access to it while still allowing PHP includes.
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

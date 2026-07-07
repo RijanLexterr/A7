@@ -1,0 +1,193 @@
+/* ==========================================================
+   HMCF Prime - Custom theme layer on top of Bootstrap 5
+   (Dasher-inspired admin dashboard look: light sidebar, icon
+   nav, soft stat cards, topbar with profile dropdown.)
+   ========================================================== */
+
+:root {
+  --brand: #4f46e5;
+  --brand-rgb: 79, 70, 229;
+  --brand-dark: #4338ca;
+  --sidebar-width: 260px;
+  --bs-primary: #4f46e5;
+  --bs-primary-rgb: 79, 70, 229;
+  --bs-link-color: #4f46e5;
+  --bs-link-hover-color: #4338ca;
+}
+
+body {
+  background: #f4f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.btn-primary {
+  background-color: var(--brand);
+  border-color: var(--brand);
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--brand-dark);
+  border-color: var(--brand-dark);
+}
+.btn-outline-primary {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+.btn-outline-primary:hover {
+  background-color: var(--brand);
+  border-color: var(--brand);
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 .2rem rgba(var(--brand-rgb), .15);
+}
+a { color: var(--brand); }
+a:hover { color: var(--brand-dark); }
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #495057;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-icon:hover { background: #f1f2f6; }
+
+/* ---------------- Avatar ---------------- */
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .82rem;
+  flex-shrink: 0;
+}
+.avatar-circle.avatar-sm { width: 32px; height: 32px; font-size: .75rem; }
+
+/* ---------------- Sidebar ---------------- */
+.sidebar {
+  background: #fff;
+  border-right: 1px solid #edeef2;
+  width: var(--sidebar-width);
+}
+@media (min-width: 992px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    z-index: 200;
+  }
+  .main-content.with-sidebar { margin-left: var(--sidebar-width); }
+}
+
+.sidebar-brand {
+  align-items: center;
+  gap: 10px;
+  padding: 22px 20px 16px;
+}
+.sidebar-brand-mobile { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+.brand-mark {
+  background: var(--brand);
+  color: #fff;
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .78rem;
+  flex-shrink: 0;
+}
+.sidebar-brand-title { font-weight: 700; font-size: .96rem; color: #1c2126; }
+.sidebar-brand-subtitle { font-size: .72rem; color: #8b93a1; }
+
+.sidebar-nav { padding: 8px 14px; gap: 2px; }
+.sidebar-nav .nav-link {
+  color: #5b6474;
+  font-size: .92rem;
+  font-weight: 500;
+  padding: 11px 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sidebar-nav .nav-link i { font-size: 1.05rem; width: 18px; text-align: center; opacity: .85; }
+.sidebar-nav .nav-link:hover { background: #f4f5f9; color: #1c2126; }
+.sidebar-nav .nav-link.active {
+  background: rgba(var(--brand-rgb), .1);
+  color: var(--brand);
+  font-weight: 600;
+}
+.sidebar-nav .nav-link.active i { opacity: 1; }
+
+.sidebar-profile {
+  margin-top: auto;
+  border-top: 1px solid #edeef2;
+  padding: 14px 16px;
+}
+
+/* ---------------- Topbar ---------------- */
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid #edeef2;
+  min-height: 64px;
+}
+.topbar .container-fluid { display: flex; align-items: center; min-height: 64px; }
+
+/* ---------------- Stat cards (dashboard) ---------------- */
+.stat-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.stat-icon-indigo { background: rgba(79, 70, 229, .12); color: #4f46e5; }
+.stat-icon-green  { background: rgba(25, 135, 84, .12); color: #198754; }
+.stat-icon-amber  { background: rgba(255, 193, 7, .18); color: #a9750a; }
+.stat-icon-blue   { background: rgba(13, 110, 253, .12); color: #0d6efd; }
+
+.stat-value { font-size: 1.6rem; font-weight: 700; color: #1c2126; line-height: 1.1; }
+.stat-label { font-size: .8rem; color: #8b93a1; font-weight: 500; }
+
+/* ---------------- Cards / tables ---------------- */
+.card { border: 1px solid #edeef2; }
+.table thead th {
+  font-size: .74rem;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: #8b93a1;
+  font-weight: 600;
+  border-bottom-width: 1px;
+  background: #fafbfc;
+}
+.table td { vertical-align: middle; font-size: .9rem; }
+
+/* ---------------- Login / forgot / reset pages ---------------- */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f4f5f9;
+}
+.auth-card { width: 100%; max-width: 380px; }
+
+/* Mobile-only helpers */
+@media (max-width: 991.98px) {
+  .main-content.with-sidebar { margin-left: 0; }
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hmcfApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <title>HMCF Prime - Operations</title>
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/vendor/bootstrap-icons-1.13.1/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <div id="wrapper" ng-controller="ShellController as shell">
+
+    <!-- Sidebar: static on desktop, slide-in offcanvas below lg -->
+    <div class="offcanvas-lg offcanvas-start sidebar" tabindex="-1" id="appSidebar" ng-if="currentUser">
+      <div class="offcanvas-header d-lg-none">
+        <span class="sidebar-brand-mobile"><span class="brand-mark">HP</span> HMCF Prime</span>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#appSidebar"
+          aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body d-flex flex-column p-0">
+        <div class="sidebar-brand d-none d-lg-flex">
+          <span class="brand-mark">HP</span>
+          <div>
+            <div class="sidebar-brand-title">HMCF Prime</div>
+            <div class="sidebar-brand-subtitle">Operations Console</div>
+          </div>
+        </div>
+
+        <nav class="nav flex-column sidebar-nav">
+          <a href="#!/dashboard" class="nav-link" ng-class="{active: shell.isActive('/dashboard')}"
+            data-bs-dismiss="offcanvas" data-bs-target="#appSidebar">
+            <i class="bi bi-grid-1x2-fill"></i> Dashboard
+          </a>
+          <a href="#!/customers" class="nav-link" ng-class="{active: shell.isActive('/customers')}"
+            data-bs-dismiss="offcanvas" data-bs-target="#appSidebar">
+            <i class="bi bi-people-fill"></i> Customers
+          </a>
+          <a href="#!/trucks" class="nav-link" ng-class="{active: shell.isActive('/trucks')}"
+            data-bs-dismiss="offcanvas" data-bs-target="#appSidebar">
+            <i class="bi bi-truck"></i> Trucks &amp; Equipment
+          </a>
+          <a href="#!/assignments" class="nav-link" ng-class="{active: shell.isActive('/assignments')}"
+            data-bs-dismiss="offcanvas" data-bs-target="#appSidebar">
+            <i class="bi bi-clipboard-check-fill"></i> Assignments
+          </a>
+          <a href="#!/users" class="nav-link" ng-class="{active: shell.isActive('/users')}" data-bs-dismiss="offcanvas"
+            data-bs-target="#appSidebar">
+            <i class="bi bi-shield-lock-fill"></i> Staff Accounts
+          </a>
+        </nav>
+
+        <div class="sidebar-profile">
+          <div class="d-flex align-items-center gap-2">
+            <span class="avatar-circle">{{ shell.initials() }}</span>
+            <div class="flex-grow-1 overflow-hidden">
+              <div class="fw-semibold small text-truncate">{{ currentUser.full_name }}</div>
+              <div class="text-muted" style="font-size:.75rem;">Staff account</div>
+            </div>
+            <button class="btn btn-sm btn-icon" ng-click="logout()" title="Log out">
+              <i class="bi bi-box-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content" ng-class="{'with-sidebar': currentUser}">
+
+      <nav class="navbar topbar sticky-top" ng-if="currentUser">
+        <div class="container-fluid px-3 px-lg-4">
+          <button class="btn btn-icon d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#appSidebar"
+            aria-label="Menu">
+            <i class="bi bi-list fs-4"></i>
+          </button>
+          <span class="navbar-brand-mobile d-lg-none"><span class="brand-mark">HP</span></span>
+
+          <span class="ms-auto"></span>
+
+          <div class="dropdown">
+            <button class="btn btn-icon dropdown-toggle d-flex align-items-center gap-2" type="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="avatar-circle avatar-sm">{{ shell.initials() }}</span>
+              <span class="d-none d-md-inline fw-semibold small">{{ currentUser.full_name }}</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+              <li><a class="dropdown-item" href="#!/users"><i class="bi bi-shield-lock me-2"></i>Staff Accounts</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><button class="dropdown-item text-danger" ng-click="logout()"><i
+                    class="bi bi-box-arrow-right me-2"></i>Log out</button></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <main class="container-fluid px-3 px-lg-4 py-4">
+        <div ng-view></div>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 (for offcanvas + dropdown behavior only) -->
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  
+
+  <!-- AngularJS 1.8.x -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.min.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script>
+    angular.module('hmcfApp').controller('ShellController', ['$rootScope', '$location', function ($rootScope, $location) {
+      var vm = this;
+      vm.isActive = function (path) {
+        return $location.path().indexOf(path) === 0;
+      };
+      vm.initials = function () {
+        var user = $rootScope.currentUser;
+        if (!user || !user.full_name) return '?';
+        var parts = user.full_name.trim().split(/\s+/);
+        var first = parts[0] ? parts[0][0] : '';
+        var last = parts.length > 1 ? parts[parts.length - 1][0] : '';
+        return (first + last).toUpperCase();
+      };
+    }]);
+  </script>
+</body>
+
+</html>
